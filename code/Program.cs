@@ -1,7 +1,24 @@
 ﻿string[] array = UserArray();
 string[] FinalArray = LessThan3(array, 3);
-Console.WriteLine($"[{string.Join(", ", array)}] -> [{string.Join(", ", FinalArray)}]");
+string[] UserArray()
+{
+    Console.Write("Введите значения массива используя пробел: ");
+    return Console.ReadLine()!.Split(' ');
+}
+int CountLessThan(string[] input, int n)
+{
+    int count = 0;
 
+    for (int i = 0; i < input.Length; i++)
+    {
+        if (input[i].Length <= n)
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
 string[] LessThan3(string[] input, int n)
 {
     string[] output = new string[CountLessThan(input, n)];
@@ -18,23 +35,4 @@ string[] LessThan3(string[] input, int n)
     return output;
 }
 
-int CountLessThan(string[] input, int n)
-{
-    int count = 0;
-
-    for (int i = 0; i < input.Length; i++)
-    {
-        if (input[i].Length <= n)
-        {
-            count++;
-        }
-    }
-
-    return count;
-}
-
-string[] UserArray()
-{
-    Console.Write("Введите значения массива используя пробел: ");
-    return Console.ReadLine()!.Split(' ');
-}
+Console.WriteLine($"[{string.Join(", ", array)}] -> [{string.Join(", ", FinalArray)}]");
